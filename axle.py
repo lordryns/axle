@@ -2,10 +2,11 @@ import os
 
 
 class File:
-    def __init__(self, name: str, parent: str) -> None:
+    def __init__(self, name: str, parent: str, content: str ="") -> None:
         self.name: str = name
         self.ext: str = name.split('.')[-1]
-        self.parent : str = parent # this must be the absolute path of the parent 
+        self.parent : str = parent 
+        self.content = content
 
     @property 
     def path(self) -> str:
@@ -13,7 +14,7 @@ class File:
 
     def create(self, print_exception: bool = True):
         try:    
-            with open(self.path, 'w'): pass
+            with open(self.path, 'w') as f: f.write(self.content)
         except Exception as e:
             if print_exception: print(e)
 
@@ -42,8 +43,8 @@ class Folder:
         f.create(self.print_exception)
         return f
 
-    def create_child_file(self, name: str) -> File:
-        f = File(name, self.path)
+    def create_child_file(self, name: str, content: str = "") -> File:
+        f = File(name, self.path, content=content)
         f.create()
         return f
     
