@@ -1,5 +1,4 @@
-import os 
-
+import os, sys
 
 class File:
     """The file class represents a single file 
@@ -77,4 +76,10 @@ class Project(Folder):
         except Exception as e:
             if print_exceptions: print(e)
 
-        
+
+def get_arg(index: int) -> str | None:
+    """use to grab an argument from the command line and return line if argument isn't found"""
+    try:
+        return sys.argv[index]
+    except:
+        return None

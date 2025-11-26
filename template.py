@@ -1,6 +1,8 @@
 import axle
 
-project = axle.Project("test")
+project = axle.Project(
+    str(axle.get_arg(1)) if axle.get_arg(1) is not None else "default"
+)
 
 project.create_child_file("main.py")
 website_folder = project.create_child_folder("website")
