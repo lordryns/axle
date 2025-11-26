@@ -2,6 +2,11 @@ import os
 
 
 class File:
+    """The file class represents a single file 
+    \nargs:
+        name: The direct name of the file instead of a path
+        parent: The parent path
+        content: The content of the file (type str)"""
     def __init__(self, name: str, parent: str, content: str ="") -> None:
         self.name: str = name
         self.ext: str = name.split('.')[-1]
@@ -20,6 +25,11 @@ class File:
 
 
 class Folder:
+    """The Folder class represents a single folder
+    args:
+        name: The direct name of the file instead of a path
+        parent: The parent path"""
+
     def __init__(self, name: str, parent: str) -> None:
         self.name = name
         self.parent = parent # should be absolute, relative path might cause weird behaviour :(
@@ -52,6 +62,11 @@ class Folder:
 
 
 class Project(Folder):
+    """The Project class represents the project and every other class is supposed to be used as a child of it. 
+
+    args: 
+        path: project path
+        print_exceptions: this argument is passed to all the children of this class"""
     def __init__(self, path: str, print_exceptions: bool = True) -> None:
         self.print_exceptions = print_exceptions
         self.parent = ""
