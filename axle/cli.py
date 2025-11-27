@@ -98,8 +98,6 @@ def use(template, path):
     click.echo(click.style(f"Creating {path} using {template}", fg="blue"))
     subprocess.run(["python", os.path.abspath(template_path)])
 
-    click.echo(click.style("Done!", fg="green"))
-
 
 def main():
     if not os.path.exists(get_template_path()):

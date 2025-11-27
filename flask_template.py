@@ -1,11 +1,6 @@
-import sys
-
 import axle
 
-project_name = axle.get_arg(1)
-if project_name is None:
-    print("Must provide a project name to continue!")
-    sys.exit(1)
+project_name = input("Enter project name: ")
 
 project = axle.Project(project_name)
 project.create_child_file("main.py")
