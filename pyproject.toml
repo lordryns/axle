@@ -1,0 +1,8 @@
+[project]
+name = "axle"
+version = "0.1.0"
+description = "Axle CLI project scaffold"
+requires-python = ">=3.6"
+
+[project.scripts]
+axle = "axle.cli:main"
