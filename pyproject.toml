@@ -1,8 +1,13 @@
 [project]
-name = "axle"
+name = "axle-cli"
 version = "0.1.0"
-description = "Axle CLI project scaffold"
-requires-python = ">=3.6"
+description = "Package for writing and generating project templates in Python!"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "David Monday Osakpawan"}
+]
+license = {text = "Apache-2.0"}
 
 [project.scripts]
 axle = "axle.cli:main"
